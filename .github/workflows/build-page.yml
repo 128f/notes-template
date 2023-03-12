@@ -1,0 +1,21 @@
+name: Build the output directory
+on: [push]
+jobs:
+  build-page:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: Set-up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.10.10
+      - run: sudo apt-get install -y pandoc jq
+      - run: pip install -r requirements.txt
+      - run: ./build.sh
+      - run: git add docs -f
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Commit output directory

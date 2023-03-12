@@ -1,0 +1,15 @@
+[
+  {
+    "path": "./notes/file.md",
+    "title": "First file"
+  },
+  {
+    "path": "./notes/file2.md",
+    "title": "Probably the Second File"
+  },
+  {
+    "path": "./notes/deeper/file.md",
+    "title": "Deep",
+    "output": "deeper/"
+  }
+]
